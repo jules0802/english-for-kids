@@ -14,7 +14,7 @@ const sideMenu = () => {
         three.style.top = '24px';
         three.style.opacity = '0';
 
-        menu.style.transform = 'translateX(0)';
+        menu.classList.add('active');
 
         icon.classList.remove('closed');
         icon.classList.add('open');
@@ -34,7 +34,7 @@ const sideMenu = () => {
         two.style.top = '12px';
         three.style.top = '24px';
 
-        menu.style.transform = 'translateX(-100%)';
+        menu.classList.remove('active');;
 
         icon.classList.remove('open');
         icon.classList.add('closed');
