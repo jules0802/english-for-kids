@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400');
+
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+.menu {
+  height: 100vh;
+  width: 30vw;
+  background: $menu-background;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100%);
+  position: relative;
+  z-index: 0;
+  transition: 1s;
+  overflow: hidden;
+  
+  & ul {
+     list-style-type: none;
+     padding: 0;
+     
+        & li {    
+        margin: 12px;
+        font-size: 24px;
+        font-weight: 200;
+        position: relative;
+        z-index: 2;
+
+        @media screen and (max-width: 768px) {
+            font-size: 18px;
+        }    
+    }
+  }
+
+  & img {
+    width: 30px;
+    height: 30px;
+    padding: 0 5px 5px;
+    opacity: 0.3;
+  }  
+}
+
+a:link,
+a:visited {
+  padding: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+    box-shadow: 0 0 10px rgba(196, 241, 241, 0.8);
+    cursor: pointer;
+    background-color: rgba(196, 241, 241, 0.8);
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    border-radius: 10px;
+    transition: all 0.3s;
+
+    & img {
+        width: 31px;
+        height: 31px;
+        padding: 0 4px 4px;;
+        opacity: 0.4;
+        transition: all 0.3s;
+    }
+}
+
+.line {
+  height: 4px;
+  width: 40px;
+  top: 0;
+  border-radius: 5px;
+  background-color: $burger-color;
+  transition: 1s;
+  position: absolute;
+}
+
+.two {
+  top: 12px;
+}
+
+.three {
+  top: 24px;
+}
+
+.hamburger {
+  margin: 38px;
+  position: absolute;
+  cursor: pointer;
+  background-color: transparent;
+  height: 30px;
+  width: 40px;
+  z-index: 1;
+}

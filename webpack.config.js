@@ -3,6 +3,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 const ENV = process.env.npm_lifecycle_event;
 const isDev = ENV === 'dev';
@@ -93,7 +94,7 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: 'img',
+              outputPath: 'assets/images',
               name: '[name].[ext]'
             }}          
         ]
@@ -122,7 +123,12 @@ const config = {
       { from: './src/assets', to: './assets/' },
       { from: './src/assets/images', to: './assets/images/' },
       { from: './src/assets/audio', to: './assets/audio/' }
-    ])
+    ]),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    })
   ],
 
   devServer: {

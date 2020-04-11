@@ -1,3 +1,4 @@
+import 'bootstrap';
 import '../css/style.css';
 import '../css/style.scss';
 import {
@@ -5,10 +6,8 @@ import {
 } from './cards';
 
 import {
-  menuBtn
+  sideMenu
 } from './burger-menu';
 
+sideMenu();
 
-
-console.log(cards);
-console.log(menuBtn);
