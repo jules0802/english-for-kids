@@ -57,30 +57,38 @@ const sideMenu = () => {
     };
 
 
-    if (hamburger.classList.contains('closed')){
+    if (hamburger.classList.contains('closed')) {
         hamburger.addEventListener('click', open);
     } else {
         hamburger.addEventListener('click', close);
     }
 
+    function switchToCategoryPage(categoryName) {
+        pageGenerate(categoryName);
+        mainPage.hidden = true;
+        categoryPage.hidden = false;
+        displayToggler();
+        modeSwitch();
+        menu.classList.remove('active');
+        close();
+    }
+
     menu.addEventListener('click', event => {
 
-        console.log(event.target);
         if (event.target.closest('.main-link')) {
             mainPage.hidden = false;
             menu.classList.remove('active');
             close();
         } else if (event.target.closest('.link')) {
-            console.log(event.target.closest('.link').innerText);
-            pageGenerate(event.target.closest('.link').innerText);
-            mainPage.hidden = true;
-            categoryPage.hidden = false;
-            displayToggler();
-            modeSwitch();
-            menu.classList.remove('active');
-            close();
+            switchToCategoryPage(event.target.closest('.link').innerText);
+        }
+    });
 
-        }    
+    mainPage.addEventListener('click', event => {
+        console.log(event.target);
+        if (event.target.closest('.main-card')) {
+            switchToCategoryPage(event.target.closest('.main-card').innerText);
+        }
     })
 }
 

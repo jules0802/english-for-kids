@@ -42,8 +42,11 @@ const cardFlipper = () => {
         } else if (event.target.closest('.card-container')) {          
             const wordToSay = event.target.closest('.card-container .front').innerText;       
             const audioPath = cardObjectList.find(cardObj => cardObj.word === wordToSay).audioSrc;           
-            const audio = new Audio(`../${audioPath}`);
-            audio.play();
+           // const audio = new Audio(`../${audioPath}`);
+            const audio = document.querySelector('audio');
+            audio.setAttribute('src', audioPath);
+            audio.setAttribute('autoplay', true);
+            //audio.play();            
         }
         
     });

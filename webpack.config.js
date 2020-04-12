@@ -103,12 +103,13 @@ const config = {
       },
       {
         test: /.(mp3)$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            outputPath: 'assets/audio',
-            name: '[name].[ext]'
-          }
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'assets/audio',
+              name: '[name].[ext]'
+            }
         }]
       },
       {

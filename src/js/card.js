@@ -72,7 +72,7 @@ export default class Card {
 
     insertCardIntoRow() {
         const card = this.createCard();
-        document.querySelector('body > div.container-fluid.category > div:nth-child(2)').appendChild(card);
+        document.querySelector('body > div.container-fluid.category > div:nth-child(3)').appendChild(card);
     }
 
 }
