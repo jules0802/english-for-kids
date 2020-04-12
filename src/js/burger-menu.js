@@ -1,12 +1,12 @@
 const sideMenu = () => {
-    let icon = document.querySelector('.hamburger');
-    let menu = document.querySelector('.menu');
-    let one = document.querySelector('.one');
-    let two = document.querySelector('.two');
-    let three = document.querySelector('.three');
+    const icon = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+    const one = document.querySelector('.one');
+    const two = document.querySelector('.two');
+    const three = document.querySelector('.three');
 
 
-    let open = () => {
+    const open = () => {
         one.style.transform = 'rotate(45deg)';
         two.style.transform = 'rotate(-45deg)';
         one.style.top = '12px';
@@ -20,6 +20,7 @@ const sideMenu = () => {
         icon.classList.add('open');
         
         icon.removeEventListener('click', open);
+        // eslint-disable-next-line no-use-before-define
         icon.addEventListener('click', close);
     };
 

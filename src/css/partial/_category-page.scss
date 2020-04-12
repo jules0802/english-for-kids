@@ -1,4 +1,5 @@
-.flex-container {
+
+.header-flex-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -6,9 +7,13 @@
     align-items: center;
 }
 
+h2 {
+    color: #12c2e9;
+}
+
 .category-card {
-    @include card-style;
-    background: $card-background-train;
+    @include card-style;   
+    width: 280px; 
 
     &:hover {
         box-shadow: 0 10px 20px rgba(0,0,0,.4);
@@ -30,35 +35,79 @@
         display: flex;
         justify-content: space-evenly;
     }
+
+    @media screen and (max-width: 980px){
+        & {
+            width: 260px;
+            height: 240px;
+        }
+
+    }
 }
 
-.card-view {
-    position: relative;
-    top: 0;
-    left: 0; 
+.col-12 {
+    padding: 0;
+}
+
+.card-container {
+    margin-bottom : 20px;
+    width: fit-content;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+}
+
+.card {
+    -webkit-transition: -webkit-transform 0.6s;
+    -moz-transition: -moz-transform 0.6s;
+    -o-transition: -o-transform 0.6s;
+    transition: transform 0.6s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    transition: 0.5s;
-    text-align: center;
 }
 
-.face {
-    transition: 0.5s;
+.card.flipped {
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
+}
+
+.card .front,
+.card .back {
+    background: $card-background-train;
+    position: absolute;
+    border-radius: 5px;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
     backface-visibility: hidden;
-    position: absolute; 
-    top: 0;
-    left: 0;   
+
+
 }
 
-.card-view .face:first-of-type {
-  z-index: 2;
+.card .back {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+} 
+
+.card .front.play-mode {
+    background: $card-background-play;
 }
 
-.card-view:hover {
-  transform: rotateY(180deg);
-}
 
-.face:nth-of-type(2) {
-  transform: rotateY(180deg);
-}
+
+
+
+
 
 
