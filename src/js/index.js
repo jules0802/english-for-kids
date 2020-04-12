@@ -2,6 +2,10 @@ import 'bootstrap';
 import '../css/style.css';
 import '../css/style.scss';
 import {
+  button, categoryPage, frontCards, toggler, mainPage, switcher, menu
+} from './constants';
+
+import {
   cards
 } from './cards';
 
@@ -15,9 +19,14 @@ import {
   modeSwitch
 } from './category-page';
 
+import {
+  pageGenerate
+} from './pagegeneration';
+
+import {
+  Card
+} from './card';
 
 sideMenu();
 cardFlipper();
-displayToggler();
 modeSwitch();
-

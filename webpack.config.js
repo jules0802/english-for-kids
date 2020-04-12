@@ -30,7 +30,9 @@ const config = {
   entry: { index: './src/js/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js'
+    filename: '[name].[contenthash].js',
+    library: "card",
+    libraryTarget: "umd"
   },
   mode: setDMode(),
   devtool: setDevTool(),
@@ -98,6 +100,16 @@ const config = {
               name: '[name].[ext]'
             }}          
         ]
+      },
+      {
+        test: /.(mp3)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            outputPath: 'assets/audio',
+            name: '[name].[ext]'
+          }
+        }]
       },
       {
         test: /\.(woff|woff2|ttf|otf|eot)$/,

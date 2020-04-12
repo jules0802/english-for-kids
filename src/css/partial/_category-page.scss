@@ -104,6 +104,23 @@ h2 {
     background: $card-background-play;
 }
 
+.game-btn {
+    border: none;
+    border-radius: 5px;
+    background: $card-background-play;
+    color: white;
+    font-size: 36px;
+    transition: all 0.3s;
+    outline: none!important;
+
+    &:active {
+        padding-top: 5px;
+        box-shadow: inset -1px 2px 4px 0 #123221,
+        inset 1px -1px 4px 0 #40c040;
+    }
+}
+
+
 
 
 

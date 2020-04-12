@@ -1,6 +1,19 @@
+import {
+   mainPage, menu,  hamburger, categoryPage
+} from './constants';
+
+import {
+    pageGenerate
+} from './pagegeneration';
+
+
+import {
+    cardFlipper,
+    displayToggler,
+    modeSwitch
+} from './category-page';
+
 const sideMenu = () => {
-    const icon = document.querySelector('.hamburger');
-    const menu = document.querySelector('.menu');
     const one = document.querySelector('.one');
     const two = document.querySelector('.two');
     const three = document.querySelector('.three');
@@ -16,12 +29,12 @@ const sideMenu = () => {
 
         menu.classList.add('active');
 
-        icon.classList.remove('closed');
-        icon.classList.add('open');
+        hamburger.classList.remove('closed');
+        hamburger.classList.add('open');
         
-        icon.removeEventListener('click', open);
+        hamburger.removeEventListener('click', open);
         // eslint-disable-next-line no-use-before-define
-        icon.addEventListener('click', close);
+        hamburger.addEventListener('click', close);
     };
 
     let close = () => {
@@ -37,19 +50,38 @@ const sideMenu = () => {
 
         menu.classList.remove('active');;
 
-        icon.classList.remove('open');
-        icon.classList.add('closed');
+        hamburger.classList.remove('open');
+        hamburger.classList.add('closed');
     
-        icon.removeEventListener('click', close);
-        icon.addEventListener('click', open);
+        hamburger.removeEventListener('click', close);
+        hamburger.addEventListener('click', open);
     };
 
 
-    if(icon.classList.contains('closed')){
-        icon.addEventListener('click', open);
+    if (hamburger.classList.contains('closed')){
+        hamburger.addEventListener('click', open);
     } else {
-        icon.addEventListener('click', close);
+        hamburger.addEventListener('click', close);
     }
+
+    menu.addEventListener('click', event => {
+
+        console.log(event.target);
+        if (event.target.closest('.main-link')) {
+            mainPage.hidden = false;
+            menu.classList.remove('active');
+            close();
+        } else if (event.target.closest('.link')) {
+            console.log(event.target.closest('.link').innerText);
+            pageGenerate(event.target.closest('.link').innerText);
+            mainPage.hidden = true;
+            categoryPage.hidden = false;
+            displayToggler();
+            menu.classList.remove('active');
+            close();
+
+        }    
+    })
 }
 
-  module.exports = { sideMenu };
+ export { sideMenu };
