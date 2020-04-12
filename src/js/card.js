@@ -1,5 +1,3 @@
-import { frontCards } from "./constants";
-
 export default class Card {
     constructor(state) {
         this.word = state.word;
@@ -34,9 +32,7 @@ export default class Card {
         newImage.className = 'card-image-top';
         newImage.setAttribute('src', `${this.image}`);
         newImage.setAttribute('alt', this.word);
-        newImage.setAttribute('src', `${this.image}`);
-        console.log(newImage);
-       
+        newImage.setAttribute('src', `${this.image}`);       
 
         const newCardBody = document.createElement('div');
         newCardBody.className ='card-body';

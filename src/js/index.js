@@ -2,7 +2,7 @@ import 'bootstrap';
 import '../css/style.css';
 import '../css/style.scss';
 import {
-  button, categoryPage, frontCards, toggler, mainPage, switcher, menu
+  button, categoryPage, toggler, mainPage, switcher, menu
 } from './constants';
 
 import {
@@ -29,4 +29,4 @@ import {
 
 sideMenu();
 cardFlipper();
-modeSwitch();
+//modeSwitch();

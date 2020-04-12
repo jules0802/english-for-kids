@@ -1,5 +1,5 @@
 import {
-    button, categoryPage, frontCards, toggler, mainPage, switcher, menu
+    button, categoryPage, toggler, mainPage, switcher, menu, cardObjectList
 } from './constants';
 
 
@@ -13,7 +13,8 @@ const displayToggler = () => {
 
 const modeSwitch = () => {
     toggler.addEventListener('change', () => {
-        // console.log(toggler.checked)       
+       
+        const frontCards = document.querySelectorAll('.card .front');
         frontCards.forEach(card => {
             if (toggler.checked) {
                 card.classList.add('play-mode');
@@ -38,7 +39,13 @@ const cardFlipper = () => {
     categoryPage.addEventListener('click', event => {
         if (event.target.className === 'icon') {
             event.target.closest('.card').classList.add('flipped')
+        } else if (event.target.closest('.card-container')) {          
+            const wordToSay = event.target.closest('.card-container .front').innerText;       
+            const audioPath = cardObjectList.find(cardObj => cardObj.word === wordToSay).audioSrc;           
+            const audio = new Audio(`../${audioPath}`);
+            audio.play();
         }
+        
     });
 
     categoryPage.addEventListener('mouseout', event => {

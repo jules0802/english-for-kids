@@ -1,5 +1,5 @@
 import {
-   mainPage, menu,  hamburger, categoryPage
+     categoryPage, mainPage, menu, hamburger
 } from './constants';
 
 import {
@@ -8,7 +8,6 @@ import {
 
 
 import {
-    cardFlipper,
     displayToggler,
     modeSwitch
 } from './category-page';
@@ -77,6 +76,7 @@ const sideMenu = () => {
             mainPage.hidden = true;
             categoryPage.hidden = false;
             displayToggler();
+            modeSwitch();
             menu.classList.remove('active');
             close();
 
@@ -84,4 +84,4 @@ const sideMenu = () => {
     })
 }
 
- export { sideMenu };
+export { sideMenu }
