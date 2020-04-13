@@ -132,8 +132,19 @@ h2 {
         box-shadow: inset -1px 2px 4px 0 #123221,
         inset 1px -1px 4px 0 #40c040;
     }
+
+    &.game-mode {
+        border-radius: 50%;
+        width: 60px!important;
+    }
 }
 
+.raiting {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 20px;
+}
 
 
 

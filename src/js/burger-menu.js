@@ -67,8 +67,8 @@ const sideMenu = () => {
         pageGenerate(categoryName);
         mainPage.hidden = true;
         categoryPage.hidden = false;
-        displayToggler();
-        modeSwitch();
+        //displayToggler();
+       // modeSwitch();
         menu.classList.remove('active');
         close();
     }
@@ -85,17 +85,17 @@ const sideMenu = () => {
             switchToCategoryPage(event.target.closest('.link').innerText);
         }
 
-        toggler.checked = false;
-        displayToggler();
-        modeSwitch();
+        //toggler.checked = false;
+        //displayToggler();
+       // modeSwitch();
     });
 
     mainPage.addEventListener('click', event => {
-        console.log(event.target);
+       // console.log(event.target);
         if (event.target.closest('.main-card')) {
             switchToCategoryPage(event.target.closest('.main-card').innerText);
-            toggler.checked = false;
-            displayToggler();
+            //toggler.checked = false;
+            //displayToggler();
             modeSwitch();
         }
     })

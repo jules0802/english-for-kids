@@ -9,103 +9,114 @@
 </head>
 
 <body>
-   <header>
-    <div class="header-flex-container">       
-        <div class="hamburger closed">
-            <div class="line one"></div>
-            <div class="line two"></div>
-            <div class="line three"></div>
+    <header>
+        <div class="header-flex-container">
+            <div class="hamburger closed">
+                <div class="line one"></div>
+                <div class="line two"></div>
+                <div class="line three"></div>
+            </div>
+
+            <div class="switcher-container">
+                <input type="checkbox" id="switch" />
+                <label for="switch">
+                    <span class="switch-label" data-on="Train" data-off="Play"></span>
+                </label>
+            </div>
         </div>
 
-        <div class="switcher-container" hidden="true">
-            <input type="checkbox" id="switch"/>
-            <label for="switch">
-                <span class="switch-label" data-on="Train" data-off="Play"></span>
-            </label>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li class="link main-link"><a href="#"><img class="icon" src="./assets/icons/home-solid.svg"
+                                alt="home-icon"><strong>Main page</strong></a></li>
+                    <li class="link actionA-link"><a href="#"><img class="icon" src="./assets/icons/running-solid.svg"
+                                alt="home-icon">Action (Set A)</a></li>
+                    <li class="link actionB-link"><a href="#"><img class="icon" src="./assets/icons/swimmer-solid.svg"
+                                alt="home-icon">Action (Set B)</a></li>
+                    <li class="link actionC-link"><a href="#"><img class="icon" src="./assets/icons/biking-solid.svg"
+                                alt="home-icon">Action (Set C)</a></li>
+                    <li class="link adjective-link"><a href="#"><img class="icon" src="./assets/icons/feather-solid.svg"
+                                alt="home-icon">Adjective</a></li>
+                    <li class="link animalA-link"><a href="#"><img class="icon" src="./assets/icons/fish-solid.svg"
+                                alt="home-icon">Animal (Set A)</a></li>
+                    <li class="link animalB-link"><a href="#"><img class="icon" src="./assets/icons/horse-solid.svg"
+                                alt="home-icon">Animal (Set B)</a></li>
+                    <li class="link clothes-link"><a href="#"><img class="icon" src="./assets/icons/tshirt-solid.svg"
+                                alt="home-icon">Clothes</a></li>
+                    <li class="link emotion-link"><a href="#"><img class="icon" src="./assets/icons/grin-beam-solid.svg"
+                                alt="home-icon">Emotion</a></li>
+                    <li class="link statistics-link"><a href="#"><img class="icon"
+                                src="./assets/icons/chart-bar-solid.svg" alt="home-icon"><em>Statistics</em></a></li>
+                </ul>
+            </nav>
         </div>
-    </div>   
+    </header>
 
-    <div class="menu">
-        <nav>
-            <ul>
-                <li class="link main-link"><a href="#"><img class="icon" src="./assets/icons/home-solid.svg" alt ="home-icon"><strong>Main page</strong></a></li>
-                <li class="link actionA-link"><a href="#"><img class="icon" src="./assets/icons/running-solid.svg" alt ="home-icon">Action (Set A)</a></li>
-                <li class="link actionB-link"><a href="#"><img class="icon" src="./assets/icons/swimmer-solid.svg" alt ="home-icon">Action (Set B)</a></li>
-                <li class="link actionC-link"><a href="#"><img class="icon" src="./assets/icons/biking-solid.svg" alt ="home-icon">Action (Set C)</a></li>
-                <li class="link adjective-link"><a href="#"><img class="icon" src="./assets/icons/feather-solid.svg" alt ="home-icon">Adjective</a></li>
-                <li class="link animalA-link"><a href="#"><img class="icon" src="./assets/icons/fish-solid.svg" alt ="home-icon">Animal (Set A)</a></li>
-                <li class="link animalB-link"><a href="#"><img class="icon" src="./assets/icons/horse-solid.svg" alt ="home-icon">Animal (Set B)</a></li>
-                <li class="link clothes-link"><a href="#"><img class="icon" src="./assets/icons/tshirt-solid.svg" alt ="home-icon">Clothes</a></li>
-                <li class="link emotion-link"><a href="#"><img class="icon" src="./assets/icons/grin-beam-solid.svg" alt ="home-icon">Emotion</a></li>
-                <li class="link statistics-link"><a href="#"><img class="icon" src="./assets/icons/chart-bar-solid.svg" alt ="home-icon"><em>Statistics</em></a></li>
-            </ul>
-        </nav>
-    </div>       
-</header>
-
-<div class="container-fluid main-page" >
-    <div class="row align-items-center">
-        <div class="col-12 col-sm-6 col-md-4 col-xl-3">          
-            <a href="#" class="main-card">
-                <image src="./assets/images/dive.jpg" alt="Action SetA">
-                Action (Set A)
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-xl-3"><a href="#" class="main-card">
-                <image src="./assets/images/play.jpg" alt="Action SetB">
-                Action (Set B)
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-xl-3"><a href="#" class="main-card">
-                <image src="./assets/images/draw.jpg" alt="Action SetC">
-                Action (Set C)
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-xl-3"><a href="#" class="main-card">
-                <image src="./assets/images/cry.jpg" alt="Adjective">
-                Adjective
-            </a>
-        </div>    
-        <div class="col-12 col-sm-6 col-md-4 col-xl-3">
-            <a href="#" class="main-card">
-                <image src="./assets/images/horse.jpg" alt="Animal SetA">
-                Animal (Set A)
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-xl-3">
-            <a href="#" class="main-card">
-                <image src="./assets/images/fish.jpg" alt="Animal SetB">
-                Animal (Set B)
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-xl-3">
-            <a href="#" class="main-card">
-                <image src="./assets/images/dress.jpg" alt="Clothes">
-                Clothes
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-xl-3">
-            <a href="#" class="main-card">
-                <image src="./assets/images/smile.jpg" alt="Emotion">
-                Emotion
-            </a>
+    <div class="container-fluid main-page">
+        <div class="row align-items-center">
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                <a href="#" class="main-card">
+                    <image src="./assets/images/dive.jpg" alt="Action SetA">
+                        Action (Set A)
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3"><a href="#" class="main-card">
+                    <image src="./assets/images/play.jpg" alt="Action SetB">
+                        Action (Set B)
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3"><a href="#" class="main-card">
+                    <image src="./assets/images/draw.jpg" alt="Action SetC">
+                        Action (Set C)
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3"><a href="#" class="main-card">
+                    <image src="./assets/images/cry.jpg" alt="Adjective">
+                        Adjective
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                <a href="#" class="main-card">
+                    <image src="./assets/images/horse.jpg" alt="Animal SetA">
+                        Animal (Set A)
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                <a href="#" class="main-card">
+                    <image src="./assets/images/fish.jpg" alt="Animal SetB">
+                        Animal (Set B)
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                <a href="#" class="main-card">
+                    <image src="./assets/images/dress.jpg" alt="Clothes">
+                        Clothes
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                <a href="#" class="main-card">
+                    <image src="./assets/images/smile.jpg" alt="Emotion">
+                        Emotion
+                </a>
+            </div>
         </div>
     </div>
-</div>
-<div class="container-fluid category" hidden >
+    <div class="container-fluid category" hidden>
 
-    <h2 class="mb-3">Category name</h2>
+        <h2 class="mb-3">Category name</h2>
 
-    <audio src=""></audio>
-    
-    <div class="row align-items-center">      
+        <audio src=""></audio>
+
+        <div class="row align-items-center">
+            <div class="raiting"></div>
+        </div>
+
+        <div class="row align-items-center">
+            <button class="mb-3 col-12 col-sm-6 col-md-4 col-xl-3 game-btn" hidden> Start game!</button>
+        </div>
+
     </div>
-
-    <div class="row align-items-center">
-        <button class="mb-3 col-12 col-sm-6 col-md-4 col-xl-3 game-btn" hidden> Start game!</button>
-    </div>
-
-</div> 
 </body>
 
 </html>

@@ -33,5 +33,5 @@ import {
 
 sideMenu();
 cardFlipper();
-//modeSwitch();
+modeSwitch();
 game();

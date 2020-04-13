@@ -19,6 +19,10 @@
         text-decoration: none;
         color: $card-text-color;
     }
+
+    &.play-mode {
+       background: $main-card-background-play;
+    }
 }
 
 .main-card img {

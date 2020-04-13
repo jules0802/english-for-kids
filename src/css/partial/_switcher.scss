@@ -27,11 +27,8 @@ label {
 .switch-label {
 	position: relative;
 	display: block;
-	height: inherit;
-	font-size: 18px;
-	line-height: 40px;
-	text-transform: uppercase;
-	font-size: 16px;
+	height: inherit;	
+	font-size: 14px;
 	line-height: 20px;
 	text-transform: uppercase;
 	transition: .2s ease-out;
@@ -58,8 +55,8 @@ label:after {
 	position: absolute;
 	top: 5px;
 	left: 5px;
-	width: 40px;
-	height: 40px;
+	width: 41px;
+	height: 41px;
 	background: #fff;
 	border-radius: 90px;
 	transition: 0.3s;
@@ -78,12 +75,9 @@ label:active:after {
 	width: 70px;
 }
 
-input:checked + .switch-label::after {
-	opacity: 1;
-}
-
-input:checked + .switch-label::before {
+input:checked + .switch-label:after {
 	opacity: 0;
 }
+
 
 
