@@ -12,6 +12,8 @@ const Card = require('./card.js').default;
 
 const pageGenerate = (category) => {
 
+    cardObjectList.splice(0, cardObjectList.length);
+
     document.querySelector('h2').innerText = category;
     categoryPage.querySelector('.row').innerHTML = '';
 
@@ -25,7 +27,9 @@ const pageGenerate = (category) => {
         const createdCard = new Card(cardState);
         createdCard.insertCardIntoRow();
         cardObjectList.push(createdCard);
-    })     
+    })  
+    
+    console.log(cardObjectList);
 }
 
 export { pageGenerate }

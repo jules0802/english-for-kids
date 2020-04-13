@@ -77,8 +77,10 @@ const sideMenu = () => {
 
         if (event.target.closest('.main-link')) {
             mainPage.hidden = false;
+            categoryPage.hidden = true;
             menu.classList.remove('active');
             close();
+
         } else if (event.target.closest('.link')) {
             switchToCategoryPage(event.target.closest('.link').innerText);
         }
