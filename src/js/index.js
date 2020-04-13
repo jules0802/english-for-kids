@@ -2,7 +2,7 @@ import 'bootstrap';
 import '../css/style.css';
 import '../css/style.scss';
 import {
-  button, categoryPage, toggler, mainPage, switcher, menu
+  gameButton, categoryPage, toggler, mainPage, switcher, menu
 } from './constants';
 
 import {
@@ -27,6 +27,11 @@ import {
   Card
 } from './card';
 
+import {
+  game
+} from './game';
+
 sideMenu();
 cardFlipper();
 //modeSwitch();
+game();

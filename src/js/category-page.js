@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import {
-    button, categoryPage, toggler, mainPage, switcher, menu, cardObjectList
+    gameButton, categoryPage, toggler, mainPage, switcher, menu, cardObjectList
 } from './constants';
 
 
@@ -17,11 +17,11 @@ const modeSwitch = () => {
     function checkToggler() {
         if (toggler.checked) {
             menu.style.background = 'linear-gradient(180deg, #96f193, #FFD56F)';
-            button.hidden = false;
+            gameButton.hidden = false;
         }
         else {
             menu.style.background = '';
-            button.hidden = true;
+            gameButton.hidden = true;
         }
     }
     
