@@ -1,5 +1,5 @@
 import {
-     categoryPage, mainPage, menu, hamburger
+    categoryPage, mainPage, menu, hamburger, toggler
 } from './constants';
 
 import {
@@ -82,12 +82,19 @@ const sideMenu = () => {
         } else if (event.target.closest('.link')) {
             switchToCategoryPage(event.target.closest('.link').innerText);
         }
+
+        toggler.checked = false;
+        displayToggler();
+        modeSwitch();
     });
 
     mainPage.addEventListener('click', event => {
         console.log(event.target);
         if (event.target.closest('.main-card')) {
             switchToCategoryPage(event.target.closest('.main-card').innerText);
+            toggler.checked = false;
+            displayToggler();
+            modeSwitch();
         }
     })
 }

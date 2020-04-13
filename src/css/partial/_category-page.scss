@@ -102,6 +102,20 @@ h2 {
 
 .card .front.play-mode {
     background: $card-background-play;
+    height: 100%;
+
+    & .card-image-top {
+        object-fit: cover;
+    }
+
+    & .card-body {
+        padding: 0;
+        height: 100%;
+    }
+
+   /* & .card-footer {
+        display: none;;
+    }*/
 }
 
 .game-btn {

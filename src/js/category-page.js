@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import {
     button, categoryPage, toggler, mainPage, switcher, menu, cardObjectList
 } from './constants';
@@ -12,18 +13,8 @@ const displayToggler = () => {
 };
 
 const modeSwitch = () => {
-    toggler.addEventListener('change', () => {
-       
-        const frontCards = document.querySelectorAll('.card .front');
-        frontCards.forEach(card => {
-            if (toggler.checked) {
-                card.classList.add('play-mode');
-            }
-            else {
-                card.classList.remove('play-mode');
-            }
-        })        
 
+    function checkToggler() {
         if (toggler.checked) {
             menu.style.background = 'linear-gradient(180deg, #96f193, #FFD56F)';
             button.hidden = false;
@@ -32,8 +23,28 @@ const modeSwitch = () => {
             menu.style.background = '';
             button.hidden = true;
         }
+    }
+    
+    toggler.addEventListener('change', () => {
+       
+        const frontCards = document.querySelectorAll('.card .front');
+        frontCards.forEach(card => {
+            if (toggler.checked) {
+                card.classList.add('play-mode');
+                card.querySelector('.card-footer').hidden = true;
+            }
+            else {
+                card.classList.remove('play-mode');
+                card.querySelector('.card-footer').hidden = false;
+            }
+        })  
+
+        checkToggler();
     })
+   
+    checkToggler();
 };
+
 
 const cardFlipper = () => {    
     categoryPage.addEventListener('click', event => {
@@ -46,7 +57,6 @@ const cardFlipper = () => {
             const audio = document.querySelector('audio');
             audio.setAttribute('src', audioPath);
             audio.setAttribute('autoplay', true);
-            //audio.play();            
         }
         
     });
