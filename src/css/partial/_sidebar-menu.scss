@@ -26,11 +26,12 @@ body {
      padding: 0;
      
         & li {    
-        margin: 12px;
+        margin: 14px;
         font-size: 24px;
         font-weight: 200;
         position: relative;
         z-index: 2;
+        height: 28px;
 
         @media screen and (max-width: 768px) {
             font-size: 18px;
@@ -53,7 +54,7 @@ body {
   text-decoration: none;
 }
 
-.link a:hover {
+.link a:hover, a.active {
     box-shadow: 0 0 10px rgba(196, 241, 241, 0.8);
     cursor: pointer;
     background-color: rgba(196, 241, 241, 0.8);

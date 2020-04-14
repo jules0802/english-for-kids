@@ -1,5 +1,5 @@
 import {
-    categoryPage, mainPage, menu, hamburger, toggler
+    categoryPage, mainPage, menu, hamburger,
 } from './constants';
 
 import {
@@ -8,7 +8,6 @@ import {
 
 
 import {
-    displayToggler,
     modeSwitch
 } from './category-page';
 
@@ -16,7 +15,6 @@ const sideMenu = () => {
     const one = document.querySelector('.one');
     const two = document.querySelector('.two');
     const three = document.querySelector('.three');
-
 
     const open = () => {
         one.style.transform = 'rotate(45deg)';
@@ -66,39 +64,51 @@ const sideMenu = () => {
     function switchToCategoryPage(categoryName) {
         pageGenerate(categoryName);
         mainPage.hidden = true;
-        categoryPage.hidden = false;
-        //displayToggler();
-       // modeSwitch();
+        categoryPage.hidden = false;   
         menu.classList.remove('active');
         close();
     }
 
     menu.addEventListener('click', event => {
-
         if (event.target.closest('.main-link')) {
             mainPage.hidden = false;
             categoryPage.hidden = true;
             menu.classList.remove('active');
             close();
-
+            document.querySelectorAll('.link a').forEach(link => link.classList.remove('active'))
+            event.target.closest('.main-link a').classList.add('active');
         } else if (event.target.closest('.link')) {
             switchToCategoryPage(event.target.closest('.link').innerText);
+            document.querySelectorAll('.link a').forEach(link => link.classList.remove('active'));
+            event.target.closest('.link a').classList.add('active');
         }
-
-        //toggler.checked = false;
-        //displayToggler();
-       // modeSwitch();
     });
 
     mainPage.addEventListener('click', event => {
-       // console.log(event.target);
         if (event.target.closest('.main-card')) {
-            switchToCategoryPage(event.target.closest('.main-card').innerText);
-            //toggler.checked = false;
-            //displayToggler();
+            const categoryName = event.target.closest('.main-card').innerText
+            switchToCategoryPage(categoryName);
             modeSwitch();
+            document.querySelectorAll('.link a').forEach(link => link.classList.remove('active'));
+            document.querySelectorAll('.link a').forEach(link => {
+                if (link.innerText === categoryName) {
+                    link.classList.add('active')
+                }
+            })
+        }
+        if (!event.target.closest('.menu')) {
+            menu.classList.remove('active');
+            close();
         }
     })
+
+    categoryPage.addEventListener('click', event => {
+        if (!event.target.closest('.menu')) {
+            menu.classList.remove('active');
+            close();
+        }
+    })
+   
 }
 
 export { sideMenu }

@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import {
-    gameButton, categoryPage, toggler, mainPage, switcher, menu, cardObjectList
+    startGameButton, categoryPage, toggler, mainPage, switcher, menu, cardObjectList, repeatButton
 } from './constants';
 
 import {
@@ -25,7 +25,8 @@ const modeSwitch = () => {
     function checkToggler() {
         if (toggler.checked) {
             menu.style.background = 'linear-gradient(180deg, #96f193, #FFD56F)';
-            gameButton.hidden = false;
+            startGameButton.hidden = false;
+            repeatButton.hidden = true;
             frontCards.forEach(card => {           
                 card.classList.add('play-mode');
                 card.querySelector('.card-footer').hidden = true;
@@ -36,7 +37,8 @@ const modeSwitch = () => {
         }
         else {
             menu.style.background = '';
-            gameButton.hidden = true;
+            startGameButton.hidden = true;
+            repeatButton.hidden = true;
             frontCards.forEach(card => {
                 card.classList.remove('play-mode');
                 card.querySelector('.card-footer').hidden = false;
@@ -47,9 +49,7 @@ const modeSwitch = () => {
         }
     }
     
-    toggler.addEventListener('change', () => {    
-        
-
+    toggler.addEventListener('change', () => { 
         frontCards.forEach(card => {
             if (toggler.checked) {
                 card.classList.add('play-mode');
@@ -81,7 +81,7 @@ const cardFlipper = () => {
     categoryPage.addEventListener('click', event => {
         if (event.target.className === 'icon') {
             event.target.closest('.card').classList.add('flipped')
-        } else if (event.target.closest('.card-container') && !event.target.closest('.game-mode')) {          
+        } else if (event.target.closest('.card-container') && !event.target.closest('.play-mode')) {          
             const wordToSay = event.target.closest('.card-container .front').innerText;       
             const audioPath = cardObjectList.find(cardObj => cardObj.word === wordToSay).audioSrc;           
            // const audio = new Audio(`../${audioPath}`);
@@ -94,24 +94,20 @@ const cardFlipper = () => {
 
     categoryPage.addEventListener('mouseout', event => {
         if (event.target.closest('.card-container')) {
+            //menu.classList.remove('active');            
             event.target.closest('.card').classList.remove('flipped');
         }        
     });
-
 }
 
-const game = () => {
-    const startGameButton = document.querySelector('.start-game-btn');
-   // const repeatButton = document.querySelector('.game-btn .game-mode');
+const game = () => {   
+    
     let countOfClicks = 0;
 
-
-    startGameButton.addEventListener('click', event => {
+    startGameButton.addEventListener('click', () => {
         countOfClicks++;
-        gameButton.innerHTML = '<img class="icon" src="./assets/icons/repeat.svg" width="40px" height="40px" alt ="repeat">Repeat';
-        gameButton.classList.remove('start-game-btn');
-        gameButton.classList.add('game-mode');
-        //shuffle(cardObjectList);             
+        startGameButton.hidden = true;
+        repeatButton.hidden = false;                     
         gameStart();  
     })
 }
