@@ -3,6 +3,11 @@ import {
     gameButton, categoryPage, toggler, mainPage, switcher, menu, cardObjectList
 } from './constants';
 
+import {
+    gameStart
+} from './game';
+
+
 
 const displayToggler = () => {
     if (mainPage.hidden) {
@@ -95,4 +100,20 @@ const cardFlipper = () => {
 
 }
 
-export { cardFlipper, displayToggler, modeSwitch };
+const game = () => {
+    const startGameButton = document.querySelector('.start-game-btn');
+   // const repeatButton = document.querySelector('.game-btn .game-mode');
+    let countOfClicks = 0;
+
+
+    startGameButton.addEventListener('click', event => {
+        countOfClicks++;
+        gameButton.innerHTML = '<img class="icon" src="./assets/icons/repeat.svg" width="40px" height="40px" alt ="repeat">Repeat';
+        gameButton.classList.remove('start-game-btn');
+        gameButton.classList.add('game-mode');
+        //shuffle(cardObjectList);             
+        gameStart();  
+    })
+}
+
+export { cardFlipper, displayToggler, modeSwitch, game };

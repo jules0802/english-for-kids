@@ -16,7 +16,8 @@ import {
 import {
   cardFlipper,
   displayToggler,
-  modeSwitch
+  modeSwitch,
+  game
 } from './category-page';
 
 import {
@@ -28,10 +29,11 @@ import {
 } from './card';
 
 import {
-  game
+  gameStart
 } from './game';
 
 sideMenu();
 cardFlipper();
 modeSwitch();
 game();
+
