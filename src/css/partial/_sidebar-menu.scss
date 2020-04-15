@@ -36,6 +36,17 @@ body {
         @media screen and (max-width: 768px) {
             font-size: 18px;
         }    
+
+        @media screen and (max-width: 640px) {
+            font-size: 14px;
+            margin: 10px;
+        }   
+
+        @media screen and (max-width: 530px) {
+            font-size: 0px;
+            margin: 10px;   
+            height: 35px;         
+        }   
     }
   }
 
@@ -44,6 +55,13 @@ body {
     height: 30px;
     padding: 0 5px 5px;
     opacity: 0.3;
+
+     @media screen and (max-width: 530px) {
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      padding: 0;
+     }
   }  
 }
 
@@ -69,7 +87,15 @@ body {
         padding: 0 4px 4px;;
         opacity: 0.4;
         transition: all 0.3s;
+
+        @media screen and (max-width: 530px) {
+          width: 40px;
+          height: 40px;
+          margin: 5px;
+        }
     }
+
+    
 }
 
 .line {
