@@ -19,6 +19,7 @@ body {
 
   &.active {  
     transform: translateX(0%);
+    position: fixed;
   }
   
   & ul {
@@ -124,4 +125,8 @@ body {
   height: 30px;
   width: 40px;
   z-index: 9999;
+
+  &.open {
+    position: fixed;
+  }
 }

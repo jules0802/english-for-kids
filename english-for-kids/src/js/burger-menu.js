@@ -1,5 +1,5 @@
 import {
-    categoryPage, mainPage, menu, hamburger,
+    categoryPage, mainPage, menu, hamburger, statisticsPage
 } from './constants';
 
 import {
@@ -73,12 +73,22 @@ const sideMenu = () => {
         if (event.target.closest('.main-link')) {
             mainPage.hidden = false;
             categoryPage.hidden = true;
+            statisticsPage.hidden = true;
             menu.classList.remove('active');
             close();
             document.querySelectorAll('.link a').forEach(link => link.classList.remove('active'))
             event.target.closest('.main-link a').classList.add('active');
-        } else if (event.target.closest('.link')) {
+        } else if (event.target.closest('.link') && !event.target.closest('.statistics-link')) {
             switchToCategoryPage(event.target.closest('.link').innerText);
+            statisticsPage.hidden = true;
+            document.querySelectorAll('.link a').forEach(link => link.classList.remove('active'));
+            event.target.closest('.link a').classList.add('active');
+        } else if (event.target.closest('.statistics-link')) {
+            mainPage.hidden = true;
+            categoryPage.hidden = true;
+            statisticsPage.hidden = false;
+            menu.classList.remove('active');
+            close();
             document.querySelectorAll('.link a').forEach(link => link.classList.remove('active'));
             event.target.closest('.link a').classList.add('active');
         }

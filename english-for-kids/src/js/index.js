@@ -7,6 +7,10 @@ import {
 } from './burger-menu';
 
 import {
+  statistics
+} from './statistics';
+
+import {
   cardFlipper,
   modeSwitch,
   game
@@ -16,4 +20,5 @@ sideMenu();
 cardFlipper();
 modeSwitch();
 game();
+statistics();
 

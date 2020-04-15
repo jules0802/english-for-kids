@@ -7,5 +7,6 @@ const switcher = document.querySelector('.switcher-container');
 const menu = document.querySelector('.menu');
 const hamburger = document.querySelector('.hamburger');
 const cardObjectList = []; 
+const statisticsPage = document.querySelector('.statistics-container');
 
-export { startGameButton, categoryPage, toggler, mainPage, switcher, menu, hamburger, cardObjectList, repeatButton}
+export { statisticsPage, startGameButton, categoryPage, toggler, mainPage, switcher, menu, hamburger, cardObjectList, repeatButton}
