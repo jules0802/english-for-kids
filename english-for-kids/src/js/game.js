@@ -4,6 +4,11 @@ import {
     startGameButton, categoryPage, mainPage, cardObjectList, repeatButton, toggler
 } from './constants';
 
+import {
+    cards
+} from './cards';
+
+
 const gameStart = () => {
 
     function shuffle(array) {    
@@ -30,6 +35,8 @@ const gameStart = () => {
         playWord(currentCard);
     });
 
+    const categoryName = categoryPage.querySelector('h2').innerText;
+
     function gameEventHandler(event) {
         if (event.target.closest('.card').style.opacity !== '0.6') {
             let result;
@@ -42,6 +49,10 @@ const gameStart = () => {
                 starWin.setAttribute('height', '50px');
                 document.querySelector('.raiting').appendChild(starWin);
                 result = 'win';
+                if (categoryName !== 'Difficult') {
+                    cards[cards[0].indexOf(categoryName) + 1].find(item => item.translation === currentCard.translation).successPlayClicks++;
+                }
+                
                 currentCard = cardObjectList[++currentCardIndex];
                 nextIteration();
             } else if (event.target.closest('.card')) {
@@ -53,8 +64,14 @@ const gameStart = () => {
                 document.querySelector('.raiting').appendChild(starFail);
                 document.querySelector('audio').setAttribute('src', 'assets/audio/error.mp3');
                 result = 'fail';
+
+                if (categoryName !== 'Difficult') {
+                cards[cards[0].indexOf(categoryName) + 1].find(item => item.translation === currentCard.translation).failPlayClicks++;
+                }  
             }
         }
+
+        //localStorage.setItem('cardsArray', cards);        
     }
 
     function goToMain() {
@@ -63,6 +80,9 @@ const gameStart = () => {
         repeatButton.hidden = true;
         mainPage.hidden = false;
         document.querySelector('.game-result-container').hidden = true;
+        document.querySelectorAll('.link a').forEach(link => link.classList.remove('active'))
+        document.querySelector('.main-link a').classList.add('active');
+        console.log(cards);
     }
 
     function displayGameResult() {
@@ -83,8 +103,13 @@ const gameStart = () => {
 
     function nextIteration() {
         console.log(toggler.checked);
+        console.log(cardObjectList);
+        console.log(currentCardIndex);
+        console.log(currentCardIndex === cardObjectList.length);
+
         if (toggler.checked) {
             if (currentCardIndex === cardObjectList.length) {
+                console.log('stop');
                 mode = 'stop';
                 displayGameResult();
                 setTimeout(goToMain, 5000);

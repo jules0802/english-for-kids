@@ -16,9 +16,17 @@ import {
   game
 } from './category-page';
 
+import {
+  cards
+} from './cards';
+
+//let cards1 = JSON.parse(localStorage.getItem('cardsArray'));
+
 sideMenu();
 cardFlipper();
 modeSwitch();
 game();
-statistics();
+//statistics();
+
+window.addEventListener('unload', () => localStorage.setItem('cardsArray', JSON.stringify(cards)));
 

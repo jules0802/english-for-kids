@@ -12,12 +12,17 @@ import {
 } from './constants';
 
 import {
-    cards
+    initialCardsArray, cards
 } from './cards';
 
-const statistics = () => {
+import {
+    pageGenerate
+} from './pagegeneration';
 
+
+const statistics = () => {
     const table = document.querySelector('tbody');
+    table.innerHTML = '';
 
     function generatePage() {
         for (let i = 1; i < cards.length; i++) {
@@ -48,6 +53,22 @@ const statistics = () => {
                             newTd.innerText = element.translation;
                             break;
                         }
+                        case 3: {
+                            newTd.innerText = element.trainClicks;
+                            break;
+                        }
+                        case 4: {
+                            newTd.innerText = element.successPlayClicks;
+                            break;
+                        }
+                        case 5: {
+                            newTd.innerText = element.failPlayClicks;
+                            break;
+                        }
+                        case 6: {
+                            newTd.innerText = (element.successPlayClicks + element.failPlayClicks) === 0 ? '0%': `${Math.round(element.failPlayClicks / (element.successPlayClicks + element.failPlayClicks) * 100)}%`;
+                            break;
+                        }
                     }
                 }              
                 
@@ -57,6 +78,47 @@ const statistics = () => {
 
     generatePage();
 
+    //sorting
+     
+    const getSort = ({ target }) => {
+        const order = (target.dataset.order = -(target.dataset.order || -1));
+        const index = [...target.parentNode.cells].indexOf(target);
+        const collator = new Intl.Collator(['en', 'ru'], { numeric: true });
+        const comparator = (index, order) => (a, b) => order * collator.compare(
+            a.children[index].innerHTML,
+            b.children[index].innerHTML
+        );
+
+        for (const tBody of target.closest('table').tBodies)
+            tBody.append(...[...tBody.rows].sort(comparator(index, order)));
+
+        for (const cell of target.parentNode.cells)
+            cell.classList.toggle('sorted', cell === target);
+    };
+
+    document.querySelectorAll('.table_sort thead').forEach(tableTH => tableTH.addEventListener('click', () => getSort(event)));
+ 
+    //reset-button
+    document.querySelector('.reset-btn').addEventListener('click', () => {
+        table.innerHTML = '';
+        for (let i = 1; i < initialCardsArray.lenght; i++) {
+            initialCardsArray[i].forEach(element => {
+                element.trainClicks = 0;
+                element.successPlayClicks = 0;
+                element.failPlayClicks = 0;
+            })
+        }
+        cards.splice(0, cards.length);
+        cards.push(...initialCardsArray);
+        generatePage();
+        document.querySelectorAll('.table_sort thead').forEach(tableTH => tableTH.addEventListener('click', () => getSort(event)));
+    });
+
+    document.querySelector('.difficult-btn').addEventListener('click', () => {
+        statisticsPage.hidden = true;
+        categoryPage.hidden = false;
+        pageGenerate('Difficult');        
+    });
 }
 
 export {statistics}

@@ -75,6 +75,11 @@ export default class Card {
         document.querySelector('body > div.container-fluid.category > div:nth-child(3)').appendChild(card);
     }
 
+    /*insertCardIntoRowDifficult() {
+        const card = this.createCard();
+        document.querySelector('body > div.container-fluid.category > div:nth-child(3)').appendChild(card);
+    }*/
+
 }
 
 

@@ -11,6 +11,10 @@ import {
     modeSwitch
 } from './category-page';
 
+import {
+  statistics
+} from './statistics';
+
 const sideMenu = () => {
     const one = document.querySelector('.one');
     const two = document.querySelector('.two');
@@ -91,6 +95,7 @@ const sideMenu = () => {
             close();
             document.querySelectorAll('.link a').forEach(link => link.classList.remove('active'));
             event.target.closest('.link a').classList.add('active');
+            statistics();
         }
     });
 

@@ -7,6 +7,9 @@ import {
     gameStart
 } from './game';
 
+import {
+    cards
+} from './cards';
 
 
 const displayToggler = () => {
@@ -77,27 +80,37 @@ const modeSwitch = () => {
 };
 
 
-const cardFlipper = () => {    
+const cardFlipper = () => {  
+    
     categoryPage.addEventListener('click', event => {
-        if (event.target.className === 'icon') {
-            event.target.closest('.card').classList.add('flipped')
-        } else if (event.target.closest('.card-container') && !event.target.closest('.play-mode')) {          
-            const wordToSay = event.target.closest('.card-container .front').innerText;       
-            const audioPath = cardObjectList.find(cardObj => cardObj.word === wordToSay).audioSrc;           
-           // const audio = new Audio(`../${audioPath}`);
-            const audio = document.querySelector('audio');
-            audio.setAttribute('src', audioPath);
-            audio.setAttribute('autoplay', true);
+        if (!toggler.checked) {
+            if (event.target.closest('.card-container')) {
+                const wordToSay = event.target.closest('.card-container .front').innerText;
+                const categoryName = categoryPage.querySelector('h2').innerText;
+
+                if (categoryName !== 'Difficult') {
+                    cards[cards[0].indexOf(categoryName) + 1].find(item => item.word === wordToSay).trainClicks++;
+                }
+
+                if (event.target.className === 'icon') {
+                    event.target.closest('.card').classList.add('flipped')
+                } else {
+                    const audioPath = cardObjectList.find(cardObj => cardObj.word === wordToSay).audioSrc;
+                    const audio = document.querySelector('audio');
+                    audio.setAttribute('src', audioPath);
+                    audio.setAttribute('autoplay', true);
+                }
+            }
         }
-        
     });
 
     categoryPage.addEventListener('mouseout', event => {
-        if (event.target.closest('.card-container')) {
-            //menu.classList.remove('active');            
-            event.target.closest('.card').classList.remove('flipped');
-        }        
+        if (event.target.closest('.card-container') && !toggler.checked) {            
+            //event.target.closest('.card').classList.remove('flipped');
+            event.target.closest('.card-container').querySelector('.card').classList.remove('flipped');
+        }
     });
+
 }
 
 const game = () => {   

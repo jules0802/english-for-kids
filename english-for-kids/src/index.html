@@ -31,23 +31,23 @@
                     <li class="link main-link"><a href="#"><img class="icon" src="./assets/icons/home-solid.svg"
                                 alt="home-icon"><strong>Main page</strong></a></li>
                     <li class="link actionA-link"><a href="#"><img class="icon" src="./assets/icons/running-solid.svg"
-                                alt="home-icon">Action (Set A)</a></li>
+                                alt="actionA-icon">Action (Set A)</a></li>
                     <li class="link actionB-link"><a href="#"><img class="icon" src="./assets/icons/swimmer-solid.svg"
-                                alt="home-icon">Action (Set B)</a></li>
+                                alt="actionB-icon">Action (Set B)</a></li>
                     <li class="link actionC-link"><a href="#"><img class="icon" src="./assets/icons/biking-solid.svg"
-                                alt="home-icon">Action (Set C)</a></li>
+                                alt="actionC-icon">Action (Set C)</a></li>
                     <li class="link adjective-link"><a href="#"><img class="icon" src="./assets/icons/feather-solid.svg"
-                                alt="home-icon">Adjective</a></li>
+                                alt="adjective-icon">Adjective</a></li>
                     <li class="link animalA-link"><a href="#"><img class="icon" src="./assets/icons/fish-solid.svg"
-                                alt="home-icon">Animal (Set A)</a></li>
+                                alt="animalA-icon">Animal (Set A)</a></li>
                     <li class="link animalB-link"><a href="#"><img class="icon" src="./assets/icons/horse-solid.svg"
-                                alt="home-icon">Animal (Set B)</a></li>
+                                alt="animalB-icon">Animal (Set B)</a></li>
                     <li class="link clothes-link"><a href="#"><img class="icon" src="./assets/icons/tshirt-solid.svg"
-                                alt="home-icon">Clothes</a></li>
+                                alt="clothes-icon">Clothes</a></li>
                     <li class="link emotion-link"><a href="#"><img class="icon" src="./assets/icons/grin-beam-solid.svg"
-                                alt="home-icon">Emotion</a></li>
+                                alt="emotion-icon">Emotion</a></li>
                     <li class="link statistics-link"><a href="#"><img class="icon"
-                                src="./assets/icons/chart-bar-solid.svg" alt="home-icon"><em>Statistics</em></a></li>
+                                src="./assets/icons/chart-bar-solid.svg" alt="statistics-icon"><em>Statistics</em></a></li>
                 </ul>
             </nav>
         </div>
@@ -67,12 +67,12 @@
                 </a>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-xl-3"><a href="#" class="main-card">
-                    <image src="./assets/images/draw.jpg" alt="Action SetC">
+                    <image src="./assets/images/catch.jpg" alt="Action SetC">
                         Action (Set C)
                 </a>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-xl-3"><a href="#" class="main-card">
-                    <image src="./assets/images/cry.jpg" alt="Adjective">
+                    <image src="./assets/images/big.jpg" alt="Adjective">
                         Adjective
                 </a>
             </div>
@@ -128,9 +128,13 @@
 
     <div class="statistics-container" hidden>
         <div class="table-container container-fluid d-flex flex-column align-items-center">
-            <h2 class="mb-3 col-12 col-sm-6 col-md-4 col-xl-3">Statistics</h2>
+            <div class ="statistics-header container-fluid d-flex justify-content-between">
+                <button class="mb-3 game-btn reset-btn"> Reset </button>
+                <h2 class="mb-3">Statistics</h2>
+                <button class="mb-3 game-btn difficult-btn"> Repeat Difficult</button>
+            </div>
 
-            <table class="table table-responsive">
+            <table class="table table-responsive table_sort">
                 <thead class="thead-light">
                     <tr>
                         <th>#</th>
@@ -138,7 +142,6 @@
                         <th>Word</th>
                         <th>Translation</th>
                         <th>Clicks on Train</th>
-                        <th>Clicks on Play</th>
                         <th>Success clicks</th>
                         <th>Fail clicks</th>
                         <th>% of fail clicks</th>        
