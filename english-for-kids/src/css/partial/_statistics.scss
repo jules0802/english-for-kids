@@ -1,3 +1,21 @@
+.statistics-header {
+    padding: 0px;
+}
+
+.table-responsive {
+    display: table;
+}
+
+.table-container {
+    width: 90vw;
+    @media screen and (max-width: 650px) {
+        & {
+           padding: 90px 10px 0; 
+           font-size: 12px;
+        }
+    }
+}
+
 th.sorted[data-order="1"],
 th.sorted[data-order="-1"] {
     position: relative;

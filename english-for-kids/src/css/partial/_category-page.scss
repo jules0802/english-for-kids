@@ -7,10 +7,6 @@
     align-items: center;
 }
 
-.category {
-
-}
-
 h2 {
     color: #12c2e9;
 }
@@ -78,6 +74,10 @@ h2 {
     -moz-perspective: 800px;
     -o-perspective: 800px;
     perspective: 800px;
+
+    @media screen and (min-width: 1300px) {
+        height: 330px;
+    }
 }
 
 .card {
