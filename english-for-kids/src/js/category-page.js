@@ -2,8 +2,12 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-param-reassign */
 import {
-  startGameButton, categoryPage, toggler, mainPage, switcher, menu, cardObjectList, repeatButton,
+  startGameButton, categoryPage, toggler, mainPage, switcher, menu, repeatButton,
 } from './constants';
+
+import {
+  cardObjectList
+} from './store';
 
 import {
   gameStart,
@@ -14,37 +18,29 @@ import {
 } from './cards';
 
 
-const displayToggler = () => {
-  if (mainPage.hidden) {
-    switcher.hidden = false;
-  } else {
-    switcher.hidden = true;
-  }
-};
-
 const modeSwitch = () => {
   const frontCards = document.querySelectorAll('.card .front');
   const mainCards = document.querySelectorAll('.main-card');
 
-  function checkToggler() {
+  const checkToggler = () => {
     if (toggler.checked) {
       menu.style.background = 'linear-gradient(180deg, #96f193, #FFD56F)';
-      startGameButton.hidden = false;
-      repeatButton.hidden = true;
+      startGameButton.classList.remove('hidden');
+      repeatButton.classList.add('hidden');
       frontCards.forEach((card) => {
         card.classList.add('play-mode');
-        card.querySelector('.card-footer').hidden = true;
+        card.querySelector('.card-footer').classList.add('hidden');
       });
       mainCards.forEach((card) => {
         card.classList.add('play-mode');
       });
     } else {
       menu.style.background = '';
-      startGameButton.hidden = true;
-      repeatButton.hidden = true;
+      startGameButton.classList.add('hidden');
+      repeatButton.classList.add('hidden');
       frontCards.forEach((card) => {
         card.classList.remove('play-mode');
-        card.querySelector('.card-footer').hidden = false;
+        card.querySelector('.card-footer').classList.remove('hidden');
       });
       mainCards.forEach((card) => {
         card.classList.remove('play-mode');
@@ -56,10 +52,10 @@ const modeSwitch = () => {
     frontCards.forEach((card) => {
       if (toggler.checked) {
         card.classList.add('play-mode');
-        card.querySelector('.card-footer').hidden = true;
+        card.querySelector('.card-footer').classList.add('hidden');
       } else {
         card.classList.remove('play-mode');
-        card.querySelector('.card-footer').hidden = false;
+        card.querySelector('.card-footer').classList.remove('hidden');
       }
     });
 
@@ -103,9 +99,9 @@ const cardFlipper = () => {
   });
 
   categoryPage.addEventListener('mouseout', (event) => {
-    if (event.relatedTarget.className === 'card-container'
-            || event.relatedTarget.className === 'row align-items-center'
-            || event.relatedTarget.className === 'col-12 col-sm-6 col-md-4 col-xl-3') {
+    if (event.relatedTarget.classList[1] === 'js-container'
+            || event.relatedTarget.classList[2] === 'js-row'
+            || event.relatedTarget.classList[4] === 'js-col') {
       event.target.closest('.card-container').querySelector('.card').classList.remove('flipped');
     }
   });
@@ -113,12 +109,12 @@ const cardFlipper = () => {
 
 const game = () => {
   startGameButton.addEventListener('click', () => {
-    startGameButton.hidden = true;
-    repeatButton.hidden = false;
+    startGameButton.classList.add('hidden');
+    repeatButton.classList.remove('hidden');
     gameStart();
   });
 };
 
 export {
-  cardFlipper, displayToggler, modeSwitch, game,
+  cardFlipper, modeSwitch, game,
 };

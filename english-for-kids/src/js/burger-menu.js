@@ -16,17 +16,17 @@ import {
 } from './statistics';
 
 const sideMenu = () => {
-  const one = document.querySelector('.one');
-  const two = document.querySelector('.two');
-  const three = document.querySelector('.three');
+  const firstBar = document.querySelector('.line-first');
+  const secondBar = document.querySelector('.line-second');
+  const thirdBar = document.querySelector('.line-third');
 
   const open = () => {
-    one.style.transform = 'rotate(45deg)';
-    two.style.transform = 'rotate(-45deg)';
-    one.style.top = '12px';
-    two.style.top = '12px';
-    three.style.top = '24px';
-    three.style.opacity = '0';
+    firstBar.style.transform = 'rotate(45deg)';
+    secondBar.style.transform = 'rotate(-45deg)';
+    firstBar.style.top = '12px';
+    secondBar.style.top = '12px';
+    thirdBar.style.top = '24px';
+    thirdBar.style.opacity = '0';
 
     menu.classList.add('active');
 
@@ -39,14 +39,14 @@ const sideMenu = () => {
   };
 
   let close = () => {
-    one.style.transform = 'rotate(0)';
-    two.style.transform = 'rotate(0)';
+    firstBar.style.transform = 'rotate(0)';
+    secondBar.style.transform = 'rotate(0)';
 
-    three.style.opacity = '1';
+    thirdBar.style.opacity = '1';
 
-    one.style.top = '0';
-    two.style.top = '12px';
-    three.style.top = '24px';
+    firstBar.style.top = '0';
+    secondBar.style.top = '12px';
+    thirdBar.style.top = '24px';
 
     menu.classList.remove('active');
 
@@ -64,32 +64,32 @@ const sideMenu = () => {
     hamburger.addEventListener('click', close);
   }
 
-  function switchToCategoryPage(categoryName) {
+  const switchToCategoryPage = (categoryName) => {
     pageGenerate(categoryName);
-    mainPage.hidden = true;
-    categoryPage.hidden = false;
+    mainPage.classList.add('hidden');
+    categoryPage.classList.remove('hidden');
     menu.classList.remove('active');
     close();
   }
 
   menu.addEventListener('click', (event) => {
     if (event.target.closest('.main-link')) {
-      mainPage.hidden = false;
-      categoryPage.hidden = true;
-      statisticsPage.hidden = true;
+      mainPage.classList.remove('hidden');
+      categoryPage.classList.add('hidden');
+      statisticsPage.classList.add('hidden');
       menu.classList.remove('active');
       close();
       document.querySelectorAll('.link a').forEach((link) => link.classList.remove('active'));
       event.target.closest('.main-link a').classList.add('active');
     } else if (event.target.closest('.link') && !event.target.closest('.statistics-link')) {
       switchToCategoryPage(event.target.closest('.link').innerText);
-      statisticsPage.hidden = true;
+      statisticsPage.classList.add('hidden');
       document.querySelectorAll('.link a').forEach((link) => link.classList.remove('active'));
       event.target.closest('.link a').classList.add('active');
     } else if (event.target.closest('.statistics-link')) {
-      mainPage.hidden = true;
-      categoryPage.hidden = true;
-      statisticsPage.hidden = false;
+      mainPage.classList.add('hidden');
+      categoryPage.classList.add('hidden');
+      statisticsPage.classList.remove('hidden');
       menu.classList.remove('active');
       close();
       document.querySelectorAll('.link a').forEach((link) => link.classList.remove('active'));

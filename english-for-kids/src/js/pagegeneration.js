@@ -1,6 +1,10 @@
 import {
-  categoryPage, cardObjectList, startGameButton,
+  categoryPage, startGameButton,
 } from './constants';
+
+import {
+  cardObjectList
+} from './store';
 
 import {
   cards,
@@ -10,10 +14,10 @@ import {
   modeSwitch,
 } from './category-page';
 
-const Card = require('./card.js').default;
+import Card from './card';
 
 const pageGenerate = (category) => {
-  function generateDifficultCardsArray() {
+  const generateDifficultCardsArray = () => {
     let difficultCards = [];
     for (let i = 1; i < cards.length; i++) {
       cards[i].forEach((element) => {
@@ -41,11 +45,9 @@ const pageGenerate = (category) => {
       difficultCards.forEach((cardState) => {
         const createdCard = new Card(cardState);
         createdCard.insertCardIntoRow();
-        // cardObjectList.push(createdCard);
         cardObjectList.push(cardState);
       });
 
-      // console.log(cardObjectList);
       break;
     }
 
@@ -55,7 +57,6 @@ const pageGenerate = (category) => {
       cardList.forEach((cardState) => {
         const createdCard = new Card(cardState);
         createdCard.insertCardIntoRow();
-        // cardObjectList.push(createdCard);
         cardObjectList.push(cardState);
       });
       break;

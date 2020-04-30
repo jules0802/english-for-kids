@@ -12,9 +12,9 @@
     <header>
         <div class="header-flex-container">
             <div class="hamburger closed">
-                <div class="line one"></div>
-                <div class="line two"></div>
-                <div class="line three"></div>
+                <div class="line line-first"></div>
+                <div class="line line-second"></div>
+                <div class="line line-third"></div>
             </div>
 
             <div class="switcher-container">
@@ -30,21 +30,21 @@
                 <ul>
                     <li class="link main-link"><a href="#"><img class="icon" src="./assets/icons/home-solid.svg"
                                 alt="home-icon"><strong>Main page</strong></a></li>
-                    <li class="link actionA-link"><a href="#"><img class="icon" src="./assets/icons/running-solid.svg"
+                    <li class="link"><a href="#"><img class="icon" src="./assets/icons/running-solid.svg"
                                 alt="actionA-icon">Action (Set A)</a></li>
-                    <li class="link actionB-link"><a href="#"><img class="icon" src="./assets/icons/swimmer-solid.svg"
+                    <li class="link"><a href="#"><img class="icon" src="./assets/icons/swimmer-solid.svg"
                                 alt="actionB-icon">Action (Set B)</a></li>
-                    <li class="link actionC-link"><a href="#"><img class="icon" src="./assets/icons/biking-solid.svg"
+                    <li class="link"><a href="#"><img class="icon" src="./assets/icons/biking-solid.svg"
                                 alt="actionC-icon">Action (Set C)</a></li>
-                    <li class="link adjective-link"><a href="#"><img class="icon" src="./assets/icons/feather-solid.svg"
+                    <li class="link"><a href="#"><img class="icon" src="./assets/icons/feather-solid.svg"
                                 alt="adjective-icon">Adjective</a></li>
-                    <li class="link animalA-link"><a href="#"><img class="icon" src="./assets/icons/fish-solid.svg"
+                    <li class="link"><a href="#"><img class="icon" src="./assets/icons/fish-solid.svg"
                                 alt="animalA-icon">Animal (Set A)</a></li>
-                    <li class="link animalB-link"><a href="#"><img class="icon" src="./assets/icons/horse-solid.svg"
+                    <li class="link"><a href="#"><img class="icon" src="./assets/icons/horse-solid.svg"
                                 alt="animalB-icon">Animal (Set B)</a></li>
-                    <li class="link clothes-link"><a href="#"><img class="icon" src="./assets/icons/tshirt-solid.svg"
+                    <li class="link"><a href="#"><img class="icon" src="./assets/icons/tshirt-solid.svg"
                                 alt="clothes-icon">Clothes</a></li>
-                    <li class="link emotion-link"><a href="#"><img class="icon" src="./assets/icons/grin-beam-solid.svg"
+                    <li class="link"><a href="#"><img class="icon" src="./assets/icons/grin-beam-solid.svg"
                                 alt="emotion-icon">Emotion</a></li>
                     <li class="link statistics-link"><a href="#"><img class="icon"
                                 src="./assets/icons/chart-bar-solid.svg" alt="statistics-icon"><em>Statistics</em></a></li>
@@ -102,31 +102,31 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid category" hidden>
+    <div class="container-fluid category hidden">
 
         <h2 class="mb-3">Category name</h2>
 
         <audio src=""></audio>
 
-        <div class="row align-items-center">
+        <div class="row align-items-center js-row">
             <div class="raiting"></div>
         </div>
 
         <div class="buttons row align-items-center">
-            <button class="mb-3 col-12 col-sm-6 col-md-4 col-xl-3 game-btn start-game-btn" hidden> Start game!</button>
-            <button class="mb-3 col-12 col-sm-6 col-md-4 col-xl-3 game-btn game-mode" hidden> 
+            <button class="mb-3 col-12 col-sm-6 col-md-4 col-xl-3 game-btn start-game-btn hidden" > Start game!</button>
+            <button class="mb-3 col-12 col-sm-6 col-md-4 col-xl-3 game-btn game-mode hidden" > 
                 <img class="icon" src="./assets/icons/repeat.svg" width="40px" height="40px" alt="repeat">Repeat
             </button>
         </div>        
 
     </div>
 
-    <div class="game-result-container" hidden>
+    <div class="game-result-container hidden" >
         <p class="game-result mb-3">You win!</p>
         <img class="game-result-img mb-3" src="assets/images/success.jpg" alt="game-result">
     </div>
 
-    <div class="statistics-container" hidden>
+    <div class="statistics-container hidden">
         <div class="table-container container-fluid d-flex flex-column align-items-center">
             <div class ="statistics-header container-fluid d-flex justify-content-between">
                 <button class="mb-3 game-btn reset-btn"> Reset </button>

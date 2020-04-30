@@ -596,6 +596,4 @@ const initialCardsArray = [
 
 let cards = JSON.parse(localStorage.getItem('cardsArray')) || initialCardsArray;
 
-//cards = JSON.parse(localStorage.getItem('cardsArray'));
-
 export { initialCardsArray, cards };

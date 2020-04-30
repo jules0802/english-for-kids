@@ -9,9 +9,12 @@ import {
   switcher,
   menu,
   hamburger,
-  cardObjectList,
   repeatButton,
 } from './constants';
+
+import {
+  cardObjectList
+} from './store';
 
 import {
   initialCardsArray, cards,
@@ -26,53 +29,35 @@ const statistics = () => {
   const table = document.querySelector('tbody');
   table.innerHTML = '';
 
-  function generatePage() {
+  const generatePage = () => {
     for (let i = 1; i < cards.length; i++) {
       cards[i].forEach((element, index) => {
         const newRow = document.createElement('tr');
-
         const newTh = document.createElement('th');
+        
         newTh.setAttribute('scope', 'row');
         newTh.innerText = `${8 * (i - 1) + index + 1}`;
 
         newRow.appendChild(newTh);
         table.appendChild(newRow);
 
-        for (let j = 0; j < 7; j++) {
+        let percentOfFails = (element.successPlayClicks + element.failPlayClicks) === 0 ? '0%' : `${Math.round(element.failPlayClicks / (element.successPlayClicks + element.failPlayClicks) * 100)}%`;
+
+        let arr = [
+          cards[0][i - 1],
+          element.word, 
+          element.translation, 
+          element.trainClicks, 
+          element.successPlayClicks, 
+          element.failPlayClicks, 
+          percentOfFails
+        ];
+
+        arr.forEach((item) => {
           const newTd = document.createElement('td');
           newRow.appendChild(newTd);
-
-          switch (j) {
-            case 0: {
-              newTd.innerText = cards[0][i - 1];
-              break;
-            }
-            case 1: {
-              newTd.innerText = element.word;
-              break;
-            }
-            case 2: {
-              newTd.innerText = element.translation;
-              break;
-            }
-            case 3: {
-              newTd.innerText = element.trainClicks;
-              break;
-            }
-            case 4: {
-              newTd.innerText = element.successPlayClicks;
-              break;
-            }
-            case 5: {
-              newTd.innerText = element.failPlayClicks;
-              break;
-            }
-            default: {
-              newTd.innerText = (element.successPlayClicks + element.failPlayClicks) === 0 ? '0%' : `${Math.round(element.failPlayClicks / (element.successPlayClicks + element.failPlayClicks) * 100)}%`;
-              break;
-            }
-          }
-        }
+          newTd.innerText = item;
+        });
       });
     }
   }
@@ -92,12 +77,11 @@ const statistics = () => {
     cards.splice(0, cards.length);
     cards.push(...initialCardsArray);
     generatePage();
-    // document.querySelectorAll('.table_sort thead').forEach((tableTH) => tableTH.addEventListener('click', (event) => getSort(event)));
   });
 
   document.querySelector('.difficult-btn').addEventListener('click', () => {
-    statisticsPage.hidden = true;
-    categoryPage.hidden = false;
+    statisticsPage.classList.add('hidden');
+    categoryPage.classList.remove('hidden');
     pageGenerate('Difficult');
   });
 };

@@ -24,13 +24,10 @@ import {
   sortStatistics
 } from './sorting';
 
-//let cards1 = JSON.parse(localStorage.getItem('cardsArray'));
-
 sideMenu();
 cardFlipper();
 modeSwitch();
 game();
-//statistics();
 sortStatistics();
 
 window.addEventListener('unload', () => localStorage.setItem('cardsArray', JSON.stringify(cards)));

@@ -1,0 +1,3 @@
+const cardObjectList = []; 
+
+export { cardObjectList }

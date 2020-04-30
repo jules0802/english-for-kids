@@ -1,10 +1,8 @@
 // sorting
 const sortStatistics = () => {
   const getSort = ({ target }) => {
-    console.log(target.dataset.order);
     // eslint-disable-next-line no-param-reassign
     target.dataset.order = -(target.dataset.order || -1);
-    const { order } = target.dataset;
     const index = [...target.parentNode.cells].indexOf(target);
     const collator = new Intl.Collator(['en', 'ru'], { numeric: true });
     const comparator = (ind, ord) => (a, b) => ord * collator.compare(
@@ -13,7 +11,7 @@ const sortStatistics = () => {
     );
 
     for (const tBody of target.closest('table').tBodies) {
-      tBody.append(...[...tBody.rows].sort(comparator(index, order)));
+      tBody.append(...[...tBody.rows].sort(comparator(index, target.dataset.order)));
     }
 
     for (const cell of target.parentNode.cells) {

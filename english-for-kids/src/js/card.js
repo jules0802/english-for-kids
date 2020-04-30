@@ -8,10 +8,10 @@ export default class Card {
 
     createCard() { 
         const bootstrapGrid = document.createElement('div');
-        bootstrapGrid.className = 'col-12 col-sm-6 col-md-4 col-xl-3';
+        bootstrapGrid.className = 'col-12 col-sm-6 col-md-4 col-xl-3 js-col';
 
         const cardContainer = document.createElement('div');
-        cardContainer.className = 'card-container';
+        cardContainer.className = 'card-container js-container';
 
         const categoryCard = document.createElement('div');
         categoryCard.className = 'category-card card mb-1 text-white';
@@ -30,9 +30,9 @@ export default class Card {
     createCardBody() {
         const newImage = document.createElement('img');
         newImage.className = 'card-image-top';
-        newImage.setAttribute('src', `${this.image}`);
+        newImage.setAttribute('src', this.image);
         newImage.setAttribute('alt', this.word);
-        newImage.setAttribute('src', `${this.image}`);       
+        newImage.setAttribute('src', this.image);       
 
         const newCardBody = document.createElement('div');
         newCardBody.className ='card-body';
@@ -74,11 +74,6 @@ export default class Card {
         const card = this.createCard();
         document.querySelector('body > div.container-fluid.category > div:nth-child(3)').appendChild(card);
     }
-
-    /*insertCardIntoRowDifficult() {
-        const card = this.createCard();
-        document.querySelector('body > div.container-fluid.category > div:nth-child(3)').appendChild(card);
-    }*/
 
 }
 
